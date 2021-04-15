@@ -1,0 +1,37 @@
+<!--user info-->
+<h1>User info</h1>
+
+
+
+<h1>New Book</h1>
+<%= form_with model: @book, local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Option</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+
+<h1>Books</h1>
+<table>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>Option</th>
+  </tr>
+  <% @books.each do |book| %>
+  <tr>
+
+  <!--user-image-->
+
+    <td>User image</td>
+    <td>
+      <%= link_to book_path(book.id) do %>
+      <%= book.title %>
+      <% end %>
+    </td>
+    <td><%= book.body %></td>
+  </tr>
+  <% end %>
+</table>
