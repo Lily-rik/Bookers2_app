@@ -3,26 +3,29 @@
   <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
   <tr>
     <th>name</th>
-    <th><%= book.user.name %></th>
+    <th><%= @user.name %></th>
   </tr>
   <tr>
     <th>introduction</th>
-    <th><%= book.user.introduction %></th>
+    <th><%= @user.introduction %></th>
   </tr>
 </table>
 
 <!--user編集-->
+<h1>User info</h1>
+<table>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+  <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+  </tr>
+</table>
 
-
-<h1>New Book</h1>
-<%= form_with model: @book, local:true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Option</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
-
+<!--new book-->
 
 <h1>Books</h1>
 <table>
