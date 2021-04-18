@@ -1,51 +1,7 @@
-<h1>User info</h1>
-<table>
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-  <tr>
-    <th>name</th>
-    <th><%= @user.name %></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <th><%= @user.introduction %></th>
-  </tr>
-</table>
 
-<!--user編集-->
-<h1>User info</h1>
-<table>
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-  <tr>
-    <th>name</th>
-    <th><%= user.name %></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <th><%= user.introduction %></th>
-  </tr>
-</table>
 
-<!--new book-->
+<%= render 'users/user-info', user: @user %>
 
-<h1>Books</h1>
-<table>
-  <tr>
-    <th></th>
-    <th>Title</th>
-    <th>Option</th>
-  </tr>
-  <% @books.each do |book| %>
-  <tr>
+<%= render 'books/new', book: @book %>
 
-  <!--user-image-->
-
-    <td>User image</td>
-    <td>
-      <%= link_to book_path(book.id) do %>
-      <%= book.title %>
-      <% end %>
-    </td>
-    <td><%= book.body %></td>
-  </tr>
-  <% end %>
-</table>
+<%= render 'books/books', books: @books %>

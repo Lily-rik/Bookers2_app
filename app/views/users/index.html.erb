@@ -1,16 +1,32 @@
-<h1>User info</h1>
 
 
-<table>
-  <!--画像-->
-    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+<%= render 'users/user-info', user: @user %>
 
-  <tr>
-    <th>name</th>
-    <th><%= @user.name %></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <th><%= @user.introduction %></th>
-  </tr>
-</table>
+<%= render 'books/new', book: @book %>
+
+
+
+
+<h1>Users</h1>
+
+<% @users.each do |user| %>
+  <table>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>
+        <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+      </td>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= link_to "show", user_path(user.id) %>
+
+      </td>
+    </tr>
+  </table>
+<% end %>
