@@ -26,11 +26,11 @@
       <% end %>
     </td>
     <td>
-      <% if @book.user_id == current_user.id %>
+      <% if @book.user == current_user %>
       <span><%= link_to "Destroy", book_path(@book), method: :delete, "date-confirm" => "本当に消しますか？" %></span>
       <% end %>
-      
-      
+
+
     </td>
   </tr>
   <% end %>
