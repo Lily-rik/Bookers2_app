@@ -1,20 +1,6 @@
 <!--user info-->
 
-<h1>User info</h1>
-
-<table>
-  <!--画像-->
-    <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-
-  <tr>
-    <th>name</th>
-    <th><%= @book.user.name %></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <th><%= @book.user.introduction %></th>
-  </tr>
-</table>
+<%= render 'users/user-info', user: @user %>
 
 
 <h1>New Book</h1>

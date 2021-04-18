@@ -1,29 +1,8 @@
 <!--user info-->
 
-
+<%= render 'users/user-info', user: @user %>
 
 
 <%= render 'books/new', book: @book %>
 
-<h1>Books</h1>
-<table>
-  <tr>
-    <th></th>
-    <th>Title</th>
-    <th>Option</th>
-  </tr>
-  <% @books.each do |book| %>
-  <tr>
-
-  <!--user-image-->
-
-    <td>User image</td>
-    <td>
-      <%= link_to book_path(book.id) do %>
-      <%= book.title %>
-      <% end %>
-    </td>
-    <td><%= book.body %></td>
-  </tr>
-  <% end %>
-</table>
+<%= render 'books/books', books: @books %>
