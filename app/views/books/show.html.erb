@@ -1,4 +1,4 @@
-<!--user info-->
+
 
 <%= render 'users/user-info', user: @book.user %>
 
@@ -9,29 +9,25 @@
 
 <h1>Book detail</h1>
 <table>
-  <% @books.each do |book| %>
   <tr>
     <td>
-      <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+      <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
     </td>
     <td>
-      <%= link_to book_path(book.id) do %>
-      <%= book.title %>
+      <%= link_to book_path(@book.id) do %>
+      <%= @book.title %>
       <% end %>
     </td>
-    <td><%= book.body %></td>
+    <td><%= @book.body %></td>
     <td>
       <% if @book.user_id == current_user.id %>
-        <span><%= link_to "Edit", edit_book_path(@book) %></span>
+      <%= link_to "Edit", edit_book_path(@book) %>
       <% end %>
     </td>
     <td>
       <% if @book.user == current_user %>
-      <span><%= link_to "Destroy", book_path(@book), method: :delete, "date-confirm" => "本当に消しますか？" %></span>
+      <%= link_to "Destroy", book_path(@book), method: :delete, "date-confirm" => "本当に消しますか？" %>
       <% end %>
-
-
     </td>
   </tr>
-  <% end %>
 </table>
