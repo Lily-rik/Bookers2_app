@@ -53,11 +53,14 @@
       </nav>
     </header>
 
-    <%= flash[:notice] %>
 
-    <main class="mb-auto">
-    <%= yield %>
+
+    <main>
+      <p id="notice"><%= flash[:notice] %></p>
+      <%= yield %>
     </main>
+
+
     <footer>
       <div class="container mt-5">
   	    <div class="row">
